@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Autók és sofőrök</title>
+    <title>Autók és utasok</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="static/bootstrap/dist/css/bootstrap.min.css">
@@ -12,33 +12,31 @@
 
 <body>
 
-    <h1>Autók</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Utasok</h1>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <form>
             <div class="mb-3">
-                <label for="licenseplate" class="form-label">Rendszám</label>
+                <label for="licenseplate" class="form-label">Név</label>
                 <input type="text" class="form-control" id="licenseplate">
             </div>
             <div class="mb-3">
-                <label for="maker" class="form-label">Gyártó</label>
+                <label for="maker" class="form-label">Kor</label>
                 <input type="text" class="form-control" id="maker">
             </div>
             <div class="mb-3">
-                <label for="length" class="form-label">Hossz</label>
+                <label for="length" class="form-label">Vezetett órák</label>
                 <input type="text" class="form-control" id="length">
-            </div>
-            <div class="mb-3">
-                <label for="maxpeople" class="form-label">Max fő</label>
-                <input type="text" class="form-control" id="maxpeople">
-            </div>
-            <div class="mb-3">
-                <label for="trunksize" class="form-label">Csomagtér</label>
-                <input type="text" class="form-control" id="trunksize">
             </div>
 
             <a class="btn btn-primary" href="#">Mentés</a>
-            <a class="btn btn-danger" href="/index.html">Vissza</a>
+            <a class="btn btn-danger" href="/passengers.html">Vissza</a>
         </form>
     </div>
 
