@@ -1,0 +1,30 @@
+Autók és utasok
+-index.html - táblázat (edit, delete, utasokgomb) + új autó gomb
+-carForm.html - form adatokkal + mentes + save gomb
+-passangers.html - táblázat törlés szerkesztés és új utas gomb
+-passangerForm.html - utas adatok szerkesztése + mentés + kilépés gomb
+
+Routing
+
+nincs www
+nincs / a végén
+
+GET /cars              - index.html
+
+GET /cars/new          - carForm.html (new)
+POST /cars/new         - carForm.html (new)
+
+GET /cars/edit/:carid       - carForm.html  (edit)
+POST /cars/edit/:carid      - carForm.html  (edit)
+
+GET /cars/del/:carid        
+
+GET /passangers/:carid      -passangers.html
+
+GET /passangers/:carid/new      - passangerForm.html (new)
+POST /passangers/:carid/new        - passangerForm.html (new)
+
+GET /passangers/:carid/:passangerid     - passangerForm.html (edit)
+POST /passangers/:carid/:passangerid    - passangerForm.html (edit)
+
+GET /passangers/:carid/:passangerid/del
