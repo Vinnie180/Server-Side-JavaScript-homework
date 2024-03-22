@@ -26,14 +26,26 @@ GET, POST /cars/edit/:carid       - carForm.html  (edit)
         - input? ha igen akkor adatb
         - ha nem, nem
 
-GET /cars/del/:carid        
+GET /cars/del/:carid
+    getCarMW
+    delCarMW    
 
 GET /passangers/:carid      -passangers.html
+    getPassangersMW
+    renderMW()
 
-GET /passangers/:carid/new      - passangerForm.html (new)
-POST /passangers/:carid/new        - passangerForm.html (new)
+GET, POST /passangers/:carid/new      - passangerForm.html (new)
+    savePassangerMW
+    renderMW(passangerForm.html)
+        -input? ha igen akkor adatb
+        -ha nem, nem
 
-GET /passangers/:carid/:passangerid     - passangerForm.html (edit)
-POST /passangers/:carid/:passangerid    - passangerForm.html (edit)
+GET, POST /passangers/:carid/:passangerid     - passangerForm.html (edit)
+savePassangerMW
+    renderMW(passangerForm.html)
+        -input? ha igen akkor adatb
+        -ha nem, nem
 
 GET /passangers/:carid/:passangerid/del
+    getPassangersMW
+    delCarMW
