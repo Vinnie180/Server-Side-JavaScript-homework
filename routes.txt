@@ -12,17 +12,20 @@ nincs / a végén
 
 Middlewares:
 
-renderMW
+middlewares/generic/
+    renderMW.js
 
-getCarsMW
-getCarMW
-saveCarMW
-delCarMW
+middlewares/car/
+    getCarsMW.js
+    getCarMW.js
+    saveCarMW.js
+    delCarMW.js
 
-getPassangersMW
-getPassangerMW
-savePassangerMW
-delPassangerMW
+middlewares/passanger/
+    getPassangersMW.js
+    getPassangerMW.js
+    savePassangerMW.js
+    delPassangerMW.js
 
 GET /cars              - index.html
     getCarsMW
