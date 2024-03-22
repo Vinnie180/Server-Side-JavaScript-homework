@@ -10,12 +10,21 @@ nincs www
 nincs / a végén
 
 GET /cars              - index.html
+    getCarsMW
+    renderMW(index.html)
 
-GET /cars/new          - carForm.html (new)
-POST /cars/new         - carForm.html (new)
+GET, POST /cars/new          - carForm.html (new)
+    saveCarMW
+    renderMW(carForm.html)
+        - input? ha igen akkor adatb
+        - ha nem, nem
 
-GET /cars/edit/:carid       - carForm.html  (edit)
-POST /cars/edit/:carid      - carForm.html  (edit)
+GET, POST /cars/edit/:carid       - carForm.html  (edit)
+    getCarMW
+    saveCarMW
+    renderMW(carForm.html)
+        - input? ha igen akkor adatb
+        - ha nem, nem
 
 GET /cars/del/:carid        
 
