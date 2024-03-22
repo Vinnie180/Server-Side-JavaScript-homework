@@ -9,6 +9,21 @@ Routing
 nincs www
 nincs / a végén
 
+
+Middlewares:
+
+renderMW
+
+getCarsMW
+getCarMW
+saveCarMW
+delCarMW
+
+getPassangersMW
+getPassangerMW
+savePassangerMW
+delPassangerMW
+
 GET /cars              - index.html
     getCarsMW
     renderMW(index.html)
@@ -41,11 +56,12 @@ GET, POST /passangers/:carid/new      - passangerForm.html (new)
         -ha nem, nem
 
 GET, POST /passangers/:carid/:passangerid     - passangerForm.html (edit)
-savePassangerMW
+    getPassangerMW
+    savePassangerMW
     renderMW(passangerForm.html)
         -input? ha igen akkor adatb
         -ha nem, nem
 
 GET /passangers/:carid/:passangerid/del
     getPassangersMW
-    delCarMW
+    delPassangerMW
