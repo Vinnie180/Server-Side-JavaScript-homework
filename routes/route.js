@@ -13,7 +13,7 @@ const delPassengerMW = require('../middlewares/passenger/delPassengerMW');
 module.exports = function (app) {
     const objRepo = {};
 
-    app.get('/',
+    app.use('/cars',
         getCarsMW(objRepo),
         renderMW(objRepo, 'index')
     );
