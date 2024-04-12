@@ -1,69 +1,63 @@
-var renderMW = require('./generic/renderMW');
+const renderMW = require('../middlewares/generic/renderMW');
 
-var getCarsMW = require('./car/getCarsMW');
-var getCarMW = require('./car/getCarMW');
-var saveCarMW = require('./car/saveCarMW');
-var delCarMW = require('./car/delCarMW');
+const getCarsMW = require('../middlewares/car/getCarsMW');
+const getCarMW = require('../middlewares/car/getCarMW');
+const saveCarMW = require('../middlewares/car/saveCarMW');
+const delCarMW = require('../middlewares/car/delCarMW');
 
-var getPassegersMW = require('./passeger/getPassegersMW');
-var getPassegerMW = require('./passeger/getPassegerMW');
-var savePassegerMW = require('./passeger/savePassegerMW');
-var delPassegerMW = require('./passeger/delPassegerMW');
-
-var carModel = require('../models/car');
-var passegerModel = require('../models/passeger');
+const getPassengersMW = require('../middlewares/passenger/getPassengersMW');
+const getPassengerMW = require('../middlewares/passenger/getPassengerMW');
+const savePassengerMW = require('../middlewares/passenger/savePassengerMW');
+const delPassengerMW = require('../middlewares/passenger/delPassengerMW');
 
 module.exports = function (app) {
-    var objectrepository = {
-        carModel: carModel,
-        passegerModel: passegerModel
-    };
+    const objRepo = {};
+
+    app.get('/',
+        getCarsMW(objRepo),
+        renderMW(objRepo, 'index')
+    );
+
+    app.use('/cars/new',
+        saveCarMW(objRepo),
+        renderMW(objRepo, 'carForm')
+    );
+
+    app.use('/cars/edit/:carid',
+        getCarMW(objRepo),
+        saveCarMW(objRepo),
+        renderMW(objRepo, 'carForm')
+    );
+
+    app.get('/cars/del/:carid',
+        getCarMW(objRepo),
+        delCarMW(objRepo),
+        function (req, res, next) {
+            return res.redirect('/index');
+        }
+    );
+
+    app.get('/passengers/:carid',
+        getPassengersMW(objRepo),
+        renderMW(objRepo, 'passengers')
+    );
+
+    app.use('/passengers/:carid/new',
+        savePassengerMW(objRepo),
+        renderMW(objRepo, 'PassengerForm')
+    );
+
+    app.save('/passengers/:carid/:passengerid',
+        getPassengerMW(objRepo),
+        savePassengerMW(objRepo),
+        renderMW(objRepo, 'PassengerForm')
+    );
+
+    app.get('/passengers/:carid/:passengerid/del',
+        getPassengerMW(objRepo),
+        delPassengerMW(objRepo),
+        function (req, res, next) {
+            return res.redirect('/Passengers/' + req.params.carid);
+        }
+    );
 }
-
-app.get('/cars',
-    getCarsMW(objectrepository),
-    renderMW(objectrepository, 'index')
-);
-
-app.use('/cars/new',
-    saveCarMW(objectrepository),
-    renderMW(objectrepository, 'carForm')
-);
-
-app.use('/cars/edit/:carid',
-    getCarMW(objectrepository),
-    saveCarMW(objectrepository),
-    renderMW(objectrepository, 'carForm')
-);
-
-app.get('/cars/del/:carid',
-    getCarMW(objectrepository),
-    delCarMW(objectrepository),
-    function (req, res, next) {
-        return res.redirect('/index');
-    }
-);
-
-app.get('/passegers/:carid',
-    getPassegersMW(objectrepository),
-    renderMW(objectrepository, 'passegers')
-);
-
-app.use('/passegers/:carid/new',
-    savePassegerMW(objectrepository),
-    renderMW(objectrepository, 'passegerForm')
-);
-
-app.save('/passangers/:carid/:passangerid',
-    getPassegerMW(objectrepository),
-    savePassegerMW(objectrepository),
-    renderMW(objectrepository, 'passegerForm')
-);
-
-app.get('/passangers/:carid/:passangerid/del',
-    getPassegerMW(objectrepository),
-    delPassegerMW(objectrepository),
-    function (req, res, next) {
-        return res.redirect('/passegers/' + req.params.carid);
-    }
-);
