@@ -1,0 +1,7 @@
+<%- include('header') -%>
+<h1>Valami</h1>
+<% for (key in fruits) { var item = fruits[key]; %>
+    <h1><%= item.name %></h1>
+    <p><%= item.color %></p>
+<% } %>
+<%- include('footer') -%>
