@@ -16,16 +16,16 @@
     <form method="POST">
         <input type="hidden" name="id" value="<%= (typeof passenger === 'undefined') ? '' : passenger._id %>">
         <div class="mb-3">
-            <label for="licenseplate" class="form-label">Név</label>
-            <input type="text" class="form-control" id="licenseplate" value="<%= (typeof passenger === 'undefined') ? '' : passenger.name %>">
+            <label for="name" class="form-label">Név</label>
+            <input type="text" class="form-control" id="name" name="name" value="<%= (typeof passenger === 'undefined') ? '' : passenger.name %>">
         </div>
         <div class="mb-3">
-            <label for="maker" class="form-label">Kor</label>
-            <input type="text" class="form-control" id="maker" value="<%= (typeof passenger === 'undefined') ? '' : passenger.age %>">
+            <label for="age" class="form-label">Kor</label>
+            <input type="text" class="form-control" id="age" name="age" value="<%= (typeof passenger === 'undefined') ? '' : passenger.age %>">
         </div>
         <div class="mb-3">
-            <label for="length" class="form-label">Vezetett órák</label>
-            <input type="text" class="form-control" id="length" value="<%= (typeof passenger === 'undefined') ? '' : passenger.hoursdriven %>">
+            <label for="drivenHours" class="form-label">Vezetett órák</label>
+            <input type="text" class="form-control" id="drivenHours" name="drivenHours" value="<%= (typeof passenger === 'undefined') ? '' : passenger.hoursdriven %>">
         </div>
 
         <input type="submit" class="btn btn-primary" href="/passengers/123" value="Mentés"/>

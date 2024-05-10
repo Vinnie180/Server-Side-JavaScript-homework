@@ -14,26 +14,26 @@
 
 <div class="container">
     <form method="POST">
-        <input type="hidden" name="id" value="<%= (typeof car === 'undefined') ? '' : car._id %>">
+        <input type="hidden" name="_id" value="<%= (typeof car === 'undefined') ? '' : car._id %>">
         <div class="mb-3">
-            <label for="licenseplate" class="form-label">Rendszám</label>
-            <input type="text" class="form-control" id="licenseplate" name="licenseplate" value="<%= (typeof car === 'undefined') ? '' : car.plate %>">
+            <label for="licensePlate" class="form-label">Rendszám</label>
+            <input type="text" class="form-control" id="licensePlate" name="licensePlate" value="<%= (typeof car === 'undefined') ? '' : car.plate %>">
         </div>
         <div class="mb-3">
-            <label for="maker" class="form-label">Gyártó</label>
-            <input type="text" class="form-control" id="maker"  name="maker" value="<%= (typeof car === 'undefined') ? '' : car.brand %>">
+            <label for="brand" class="form-label">Gyártó</label>
+            <input type="text" class="form-control" id="brand"  name="brand" value="<%= (typeof car === 'undefined') ? '' : car.brand %>">
         </div>
         <div class="mb-3">
             <label for="length" class="form-label">Hossz</label>
             <input type="text" class="form-control" id="length" name="length" value="<%= (typeof car === 'undefined') ? '' : car.length %>">
         </div>
         <div class="mb-3">
-            <label for="maxpeople" class="form-label">Max fő</label>
-            <input type="text" class="form-control" id="maxpeople" name="maxpeople" value="<%= (typeof car === 'undefined') ? '' : car.capacity %>">
+            <label for="capacity" class="form-label">Max fő</label>
+            <input type="text" class="form-control" id="capacity" name="capacity" value="<%= (typeof car === 'undefined') ? '' : car.capacity %>">
         </div>
         <div class="mb-3">
-            <label for="trunksize" class="form-label">Csomagtér</label>
-            <input type="text" class="form-control" id="trunksize" name="trunksize" value="<%= (typeof car === 'undefined') ? '' : car.trunk %>">
+            <label for="trunkCapacity" class="form-label">Csomagtér</label>
+            <input type="text" class="form-control" id="trunkCapacity" name="trunkCapacity" value="<%= (typeof car === 'undefined') ? '' : car.trunk %>">
         </div>
 
         <input type="submit" class="btn btn-primary" href="/cars" value="Mentés"/>
