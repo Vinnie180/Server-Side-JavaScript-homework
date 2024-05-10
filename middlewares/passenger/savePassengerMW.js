@@ -13,6 +13,7 @@ module.exports = function (objectrepository) {
             return next();
         }
         console.log("savePassengerMW: " + req.body.name);
-        return next();
+        console.log(req.body);
+        res.redirect('/passengers/' + req.body._id);
     };
 }

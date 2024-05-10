@@ -16,7 +16,8 @@ module.exports = function (objectrepository) {
         }
         
         console.log("saveCarMW: " + req.body.licensePlate);
-        return next();
+        console.log(req.body);
+        res.redirect('/cars');
     };
 
 }

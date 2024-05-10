@@ -14,7 +14,7 @@
 
 <div class="container">
     <form method="POST">
-        <input type="hidden" name="id" value="<%= (typeof passenger === 'undefined') ? '' : passenger._id %>">
+        <input type="hidden" name="_id" value="<%= (typeof passenger === 'undefined') ? '' : passenger._id %>">
         <div class="mb-3">
             <label for="name" class="form-label">Név</label>
             <input type="text" class="form-control" id="name" name="name" value="<%= (typeof passenger === 'undefined') ? '' : passenger.name %>">
