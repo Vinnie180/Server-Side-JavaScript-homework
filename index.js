@@ -4,9 +4,9 @@ const port = 3000;
 
 app.set('view engine', 'ejs');
 
-app.use(express.static('static'));
+//app.use(express.static('static'));
 
-require('./routes/route')(app);
+require('./routes/index')(app);
 
 
 app.listen(port, function () {

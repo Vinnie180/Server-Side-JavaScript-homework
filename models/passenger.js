@@ -1,10 +1,10 @@
 const Schema = require('mongoose').Schema;
 const db = require('../config/db');
 
-const Passanger = db.model('Passanger', {
+const Passenger = db.model('Passenger', {
     name: String,
     age: Number,
     drivenHours: Number,
 });
 
-module.exports = Car;
+module.exports = Passenger;

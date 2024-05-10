@@ -13,11 +13,6 @@ const delPassengerMW = require('../middlewares/passenger/delPassengerMW');
 module.exports = function (app) {
     const objRepo = {};
 
-    app.use('/cars',
-        getCarsMW(objRepo),
-        renderMW(objRepo, 'index')
-    );
-
     app.use('/cars/new',
         saveCarMW(objRepo),
         renderMW(objRepo, 'carForm')
@@ -33,8 +28,13 @@ module.exports = function (app) {
         getCarMW(objRepo),
         delCarMW(objRepo),
         function (req, res, next) {
-            return res.redirect('/index');
+            return res.redirect('/cars');
         }
+    );
+
+    app.use('/cars',
+        getCarsMW(objRepo),
+        renderMW(objRepo, 'index')
     );
 
     app.get('/passengers/:carid',
@@ -44,20 +44,27 @@ module.exports = function (app) {
 
     app.use('/passengers/:carid/new',
         savePassengerMW(objRepo),
-        renderMW(objRepo, 'PassengerForm')
+        renderMW(objRepo, 'passengerForm')
     );
 
-    app.save('/passengers/:carid/:passengerid',
+    app.use('/passengers/:carid/:passengerid',
         getPassengerMW(objRepo),
         savePassengerMW(objRepo),
-        renderMW(objRepo, 'PassengerForm')
+        renderMW(objRepo, 'passengerForm')
     );
 
-    app.get('/passengers/:carid/:passengerid/del',
+    app.get('/passengers/:carid/del/:passengerid',
         getPassengerMW(objRepo),
         delPassengerMW(objRepo),
         function (req, res, next) {
-            return res.redirect('/Passengers/' + req.params.carid);
+            req.params.carid = 123;
+            return res.redirect('/passengers/' + req.params.carid);
         }
     );
+
+    app.get('/',
+        function (req, res, next) {
+            return res.redirect('/cars');
+        }
+    )
 }
