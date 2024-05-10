@@ -6,7 +6,16 @@ const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        console.log(req.body);
+        
+        if ((typeof req.body.licensePlate === 'undefined') ||
+            (typeof req.body.brand === 'undefined') ||
+            (typeof req.body.length === 'undefined') ||
+            (typeof req.body.capacity === 'undefined') ||
+            (typeof req.body.trunkCapacity === 'undefined')) {
+            return next();
+        }
+        
+        console.log("saveCarMW: " + req.body.licensePlate);
         return next();
     };
 
