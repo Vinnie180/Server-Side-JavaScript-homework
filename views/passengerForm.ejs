@@ -13,7 +13,7 @@
 </div>
 
 <div class="container">
-    <form>
+    <form method="POST">
         <div class="mb-3">
             <label for="licenseplate" class="form-label">Név</label>
             <input type="text" class="form-control" id="licenseplate" value="<%= (typeof passenger === 'undefined') ? '' : passenger.name %>">
@@ -27,7 +27,7 @@
             <input type="text" class="form-control" id="length" value="<%= (typeof passenger === 'undefined') ? '' : passenger.hoursdriven %>">
         </div>
 
-        <a class="btn btn-primary" href="/passengers/123">Mentés</a>
+        <input type="submit" class="btn btn-primary" href="/passengers/123" value="Mentés"/>
         <a class="btn btn-danger" href="/passengers/123">Vissza</a>
     </form>
 </div>

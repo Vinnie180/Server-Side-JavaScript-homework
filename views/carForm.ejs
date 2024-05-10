@@ -13,7 +13,7 @@
 </div>
 
 <div class="container">
-    <form>
+    <form method="POST">
         <div class="mb-3">
             <label for="licenseplate" class="form-label">Rendszám</label>
             <input type="text" class="form-control" id="licenseplate" value="<%= (typeof car === 'undefined') ? '' : car.plate %>">
@@ -35,7 +35,7 @@
             <input type="text" class="form-control" id="trunksize" value="<%= (typeof car === 'undefined') ? '' : car.trunk %>">
         </div>
 
-        <a class="btn btn-primary" href="/cars">Mentés</a>
+        <input type="submit" class="btn btn-primary" href="/cars" value="Mentés"/>
         <a class="btn btn-danger" href="/cars">Vissza</a>
     </form>
 </div>
