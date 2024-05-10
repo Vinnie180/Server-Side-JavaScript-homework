@@ -16,23 +16,23 @@
     <form>
         <div class="mb-3">
             <label for="licenseplate" class="form-label">Rendszám</label>
-            <input type="text" class="form-control" id="licenseplate">
+            <input type="text" class="form-control" id="licenseplate" value="<%= (typeof car === 'undefined') ? '' : car.plate %>">
         </div>
         <div class="mb-3">
             <label for="maker" class="form-label">Gyártó</label>
-            <input type="text" class="form-control" id="maker">
+            <input type="text" class="form-control" id="maker" value="<%= (typeof car === 'undefined') ? '' : car.brand %>">
         </div>
         <div class="mb-3">
             <label for="length" class="form-label">Hossz</label>
-            <input type="text" class="form-control" id="length">
+            <input type="text" class="form-control" id="length" value="<%= (typeof car === 'undefined') ? '' : car.length %>">
         </div>
         <div class="mb-3">
             <label for="maxpeople" class="form-label">Max fő</label>
-            <input type="text" class="form-control" id="maxpeople">
+            <input type="text" class="form-control" id="maxpeople" value="<%= (typeof car === 'undefined') ? '' : car.capacity %>">
         </div>
         <div class="mb-3">
             <label for="trunksize" class="form-label">Csomagtér</label>
-            <input type="text" class="form-control" id="trunksize">
+            <input type="text" class="form-control" id="trunksize" value="<%= (typeof car === 'undefined') ? '' : car.trunk %>">
         </div>
 
         <a class="btn btn-primary" href="/cars">Mentés</a>

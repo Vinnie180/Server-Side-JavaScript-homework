@@ -16,15 +16,15 @@
     <form>
         <div class="mb-3">
             <label for="licenseplate" class="form-label">Név</label>
-            <input type="text" class="form-control" id="licenseplate">
+            <input type="text" class="form-control" id="licenseplate" value="<%= (typeof passenger === 'undefined') ? '' : passenger.name %>">
         </div>
         <div class="mb-3">
             <label for="maker" class="form-label">Kor</label>
-            <input type="text" class="form-control" id="maker">
+            <input type="text" class="form-control" id="maker" value="<%= (typeof passenger === 'undefined') ? '' : passenger.age %>">
         </div>
         <div class="mb-3">
             <label for="length" class="form-label">Vezetett órák</label>
-            <input type="text" class="form-control" id="length">
+            <input type="text" class="form-control" id="length" value="<%= (typeof passenger === 'undefined') ? '' : passenger.hoursdriven %>">
         </div>
 
         <a class="btn btn-primary" href="/passengers/123">Mentés</a>
