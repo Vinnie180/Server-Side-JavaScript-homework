@@ -27,32 +27,37 @@
                     <th>Csomagtér</th>
                     <th>Kezelés</th>
                 </tr>
-                <tr>
-                    <td>
-                        <a href="/passengers/123">
-                            <button class="btn btn-primary">
-                                Utasok
-                            </button>
-                        </a>
-                    </td>
-                    <td>AMG-563</td>
-                    <td>Mercedes-Benz</td>
-                    <td>5.05m</td>
-                    <td>5 fő</td>
-                    <td>461 l</td>
-                    <td>
-                        <a href="/cars/edit/123">
-                            <button class="btn btn-secondary">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </button>
-                        </a>
-                        <a href="/cars/del/123">
-                            <button class="btn btn-danger">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </a>
-                    </td>
-                </tr>
+
+                <% cars.forEach(function(car) { %>
+                    <tr>
+                        <td>
+                            <a href="/passengers/<%= car._id %>">
+                                <button class="btn btn-primary">
+                                    Utasok
+                                </button>
+                            </a>
+                        </td>
+                        <td><%= car.plate %></td>
+                        <td><%= car.brand %></td>
+                        <td><%= car.length %> m</td>
+                        <td><%= car.capacity %> fő</td>
+                        <td><%= car.trunk %> l</td>
+                        <td>
+                            <a href="/cars/edit/<%= car._id %>">
+                                <button class="btn btn-secondary">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                            </a>
+                            <a href="/cars/del/<%= car._id %>">
+                                <button class="btn btn-danger">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                    
+                <% }); %>
+
             </table>
         </div>
     </div>
