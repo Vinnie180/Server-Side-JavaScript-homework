@@ -34,6 +34,6 @@ module.exports = function (objectrepository) {
             }
         ];
 
-        next();
+        return next();
     };
 }

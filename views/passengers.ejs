@@ -24,10 +24,12 @@
                     <th>Vezetett órák</th>
                     <th>Kezelés</th>
                 </tr>
+
+                <% passengers.forEach(function(passenger) { %>
                 <tr>
-                    <td>Feri</td>
-                    <td>18</td>
-                    <td>300</td>
+                    <td><%= passenger.name %></td>
+                    <td><%= passenger.age %></td>
+                    <td><%= passenger.hoursdriven %></td>
                     <td>
                         <a href="/passengers/123/456">
                             <button class="btn btn-secondary">
@@ -41,6 +43,7 @@
                         </a>
                     </td>
                 </tr>
+                <% }); %>
             </table>
             <a href="/cars"><button class="btn btn-danger">Vissza</button></a>
         </div>

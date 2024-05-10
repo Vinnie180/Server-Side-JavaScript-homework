@@ -8,6 +8,14 @@ const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        next();
+
+        res.locals.passenger = {
+            _id: 1,
+            name: 'John Doe',
+            age: 30,
+            hoursdriven: 100
+        }
+
+        return next();
     };
 }
