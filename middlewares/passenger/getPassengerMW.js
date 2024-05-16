@@ -7,7 +7,6 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
-
     const passengerModel = requireOption(objectrepository, 'passengerModel');
 
     return function (req, res, next) {
