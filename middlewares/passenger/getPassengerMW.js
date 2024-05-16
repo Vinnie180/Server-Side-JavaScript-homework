@@ -7,15 +7,18 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
+
+    const passengerModel = requireOption(objectrepository, 'passengerModel');
+
     return function (req, res, next) {
-
-        res.locals.passenger = {
-            _id: 1,
-            name: 'John Doe',
-            age: 30,
-            hoursdriven: 100
-        }
-
-        return next();
+        passengerModel.findOne({ _id: req.params.passengerid }).then(passenger => {
+            if (!passenger) {
+                return res.redirect('/passengers');
+            }
+            res.locals.passenger = passenger;
+            return next();
+        }).catch(err => {
+            return next(err);
+        });
     };
 }

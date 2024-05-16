@@ -5,7 +5,6 @@ const Passenger = db.model('Passenger', {
     name: String,
     age: Number,
     drivenHours: Number,
-    //TODO ADD LINK TO CAR
     _car: {
         type: Schema.Types.ObjectId,
         ref: 'Car'

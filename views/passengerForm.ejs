@@ -25,7 +25,7 @@
         </div>
         <div class="mb-3">
             <label for="drivenHours" class="form-label">Vezetett órák</label>
-            <input type="text" class="form-control" id="drivenHours" name="drivenHours" value="<%= (typeof passenger === 'undefined') ? '' : passenger.hoursdriven %>">
+            <input type="text" class="form-control" id="drivenHours" name="drivenHours" value="<%= (typeof passenger === 'undefined') ? '' : passenger.drivenHours %>">
         </div>
 
         <input type="submit" class="btn btn-primary" href="/passengers/<%= car._id %>" value="Mentés"/>
