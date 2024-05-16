@@ -11,7 +11,14 @@ const savePassengerMW = require('../middlewares/passenger/savePassengerMW');
 const delPassengerMW = require('../middlewares/passenger/delPassengerMW');
 
 module.exports = function (app) {
-    const objRepo = {};
+
+    const carModel = require('../models/car');
+    const passengerModel = require('../models/passenger');
+
+    const objRepo = {
+        carModel: carModel,
+        passengerModel: passengerModel
+    };
 
     app.use('/cars/new',
         saveCarMW(objRepo),
