@@ -6,29 +6,20 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
+
+    const passengerModel = requireOption(objectrepository, 'passengerModel')
+
     return function (req, res, next) {
 
-        res.locals.passengers = [
-            {
-                _id: 1,
-                name: 'John Doe',
-                age: 30,
-                hoursdriven: 100
-            },
-            {
-                _id: 2,
-                name: 'Jane Doe',
-                age: 25,
-                hoursdriven: 50
-            },
-            {
-                _id: 3,
-                name: 'John Smith',
-                age: 35,
-                hoursdriven: 200
-            }
-        ];
+        if(typeof res.locals.car === 'undefined') {
+            return next();
+        }
 
-        return next();
+        passengerModel.find({_car: res.locals.car._id}).then(passengers => {
+            res.locals.passengers = passengers;
+            return next();
+        }).catch(err => {
+            return next(err);
+        });
     };
 }

@@ -45,6 +45,7 @@ module.exports = function (app) {
     );
 
     app.get('/passengers/:carid',
+        getCarMW(objRepo),
         getPassengersMW(objRepo),
         renderMW(objRepo, 'passengers')
     );
