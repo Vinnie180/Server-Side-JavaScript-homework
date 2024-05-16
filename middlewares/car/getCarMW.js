@@ -9,6 +9,9 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
         carModel.findOne({_id: req.params.carid}).then(car => {
+            if (!car) {
+                return next(new Error('Car not found'));
+            }
             res.locals.car = car;
             return next();
         }).catch(err => {
