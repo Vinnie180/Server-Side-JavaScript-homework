@@ -44,6 +44,8 @@ module.exports = function (app) {
         renderMW(objRepo, 'index')
     );
 
+    //--------------------------
+
     app.get('/passengers/:carid',
         getCarMW(objRepo),
         getPassengersMW(objRepo),
@@ -51,23 +53,23 @@ module.exports = function (app) {
     );
 
     app.use('/passengers/:carid/new',
+        getCarMW(objRepo),
         savePassengerMW(objRepo),
         renderMW(objRepo, 'passengerForm')
     );
 
     app.use('/passengers/:carid/:passengerid',
+        getCarMW(objRepo),
         getPassengerMW(objRepo),
         savePassengerMW(objRepo),
         renderMW(objRepo, 'passengerForm')
     );
 
     app.get('/passengers/:carid/del/:passengerid',
+        getCarMW(objRepo),
         getPassengerMW(objRepo),
         delPassengerMW(objRepo),
-        function (req, res, next) {
-            req.params.carid = 123;
-            return res.redirect('/passengers/' + req.params.carid);
-        }
+        renderMW(objRepo, 'passengers')
     );
 
     app.get('/',

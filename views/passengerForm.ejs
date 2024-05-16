@@ -28,8 +28,8 @@
             <input type="text" class="form-control" id="drivenHours" name="drivenHours" value="<%= (typeof passenger === 'undefined') ? '' : passenger.hoursdriven %>">
         </div>
 
-        <input type="submit" class="btn btn-primary" href="/passengers/123" value="Mentés"/>
-        <a class="btn btn-danger" href="/passengers/123">Vissza</a>
+        <input type="submit" class="btn btn-primary" href="/passengers/<%= car._id %>" value="Mentés"/>
+        <a class="btn btn-danger" href="/passengers/<%= car._id %>">Vissza</a>
     </form>
 </div>
         
