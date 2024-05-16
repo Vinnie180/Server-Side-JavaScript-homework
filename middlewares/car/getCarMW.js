@@ -5,17 +5,14 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
-    return function (req, res, next) {
-        res.locals.car = 
-            {
-                _id: 1,
-                plate: 'AMG-563',
-                brand: 'Mercedes-Benz',
-                length: 5.00,
-                capacity: 5,
-                trunk: 461
-            };
+    const carModel = requireOption(objectrepository, 'carModel');
 
-        return next();
+    return function (req, res, next) {
+        carModel.findOne({_id: req.params.carid}).then(car => {
+            res.locals.car = car;
+            return next();
+        }).catch(err => {
+            return next(err);
+        });
     };
 }

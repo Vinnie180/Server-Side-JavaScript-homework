@@ -17,7 +17,7 @@
         <input type="hidden" name="_id" value="<%= (typeof car === 'undefined') ? '' : car._id %>">
         <div class="mb-3">
             <label for="licensePlate" class="form-label">Rendszám</label>
-            <input type="text" class="form-control" id="licensePlate" name="licensePlate" value="<%= (typeof car === 'undefined') ? '' : car.plate %>">
+            <input type="text" class="form-control" id="licensePlate" name="licensePlate" value="<%= (typeof car === 'undefined') ? '' : car.licensePlate %>">
         </div>
         <div class="mb-3">
             <label for="brand" class="form-label">Gyártó</label>
@@ -33,7 +33,7 @@
         </div>
         <div class="mb-3">
             <label for="trunkCapacity" class="form-label">Csomagtér</label>
-            <input type="text" class="form-control" id="trunkCapacity" name="trunkCapacity" value="<%= (typeof car === 'undefined') ? '' : car.trunk %>">
+            <input type="text" class="form-control" id="trunkCapacity" name="trunkCapacity" value="<%= (typeof car === 'undefined') ? '' : car.trunkCapacity %>">
         </div>
 
         <input type="submit" class="btn btn-primary" href="/cars" value="Mentés"/>
