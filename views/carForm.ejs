@@ -5,9 +5,8 @@
         <div class="col">
             <h1>Autó 
                 <% if (typeof car === 'undefined') { %>létrehozás
-                <% } else{ %>szerkesztés
+                <% } else{ %>szerkesztés (<%= car.licensePlate %>)
                 <% } %>
-                (<%= car.licensePlate %>)
             </h1>
         </div>
     </div>
