@@ -1,5 +1,11 @@
 /**
- * Save a car to the database
+ * Save a passenger to the database
+ * - if there is no passenger in res.locals create a new one
+ *      - save the passenger to the database
+ *      - redirect to /passenger
+ * - if there is a passenger in res.locals update it
+ *      - save the passenger to the database
+ *      - redirect to /passenger
  */
 
 const requireOption = require('../requireOption');

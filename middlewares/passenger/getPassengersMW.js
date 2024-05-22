@@ -1,6 +1,5 @@
 /**
- * Get all passangers from the database
- * and put them on res.locals.passangers
+ * Get all passengers from the database that are in the car that is in the res.locals.car variable
  */
 
 const requireOption = require('../requireOption');

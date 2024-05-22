@@ -1,5 +1,7 @@
 /**
  * Delete a car from the database
+ * - if the car is not found call next with an error
+ * - if the car is found delete it and redirect to /cars
  */
 
 const requireOption = require('../requireOption');

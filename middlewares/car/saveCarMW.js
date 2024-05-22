@@ -1,5 +1,11 @@
 /**
  * Save a car to the database
+ * - if there is no car in res.locals create a new one
+ *      - save the car to the database
+ *      - redirect to /cars
+ * - if there is a car in res.locals update it
+ *      - save the car to the database
+ *      - redirect to /cars
  */
 
 const requireOption = require('../requireOption');

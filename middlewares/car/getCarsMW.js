@@ -1,5 +1,6 @@
 /**
  * Get all cars from the database
+ * - store the cars in res.locals.cars
  */
 
 const requireOption = require('../requireOption');

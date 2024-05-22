@@ -1,7 +1,7 @@
 /**
  * Delete a passanger from the database
- * - if there is no such passanger, redirect to /passangers
- * - if there is a passanger, delete it and redirect to /passangers
+ * - if the passanger is not found call next with an error
+ * - if the passanger is found delete it and redirect to /passengers
  */
 
 const requireOption = require('../requireOption');

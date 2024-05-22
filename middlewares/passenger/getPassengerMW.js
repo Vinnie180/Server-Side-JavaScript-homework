@@ -1,6 +1,6 @@
 /**
  * Get a passanger by id from the database
- * - if there is no such passanger, redirect to /passangers
+ * - if the passanger is not found call next with an error
  * - if there is a passanger, put it on res.locals.passanger
  */
 
