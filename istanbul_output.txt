@@ -1,0 +1,13 @@
+Kíváncsiságból lefuttattam az istanbult egy másik branchen
+
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |   95.83 |     87.5 |     100 |   95.83 | 
+ middlewares           |      75 |       75 |     100 |      75 | 
+  requireOption.js     |      75 |       75 |     100 |      75 | 11
+ middlewares/car       |     100 |      100 |     100 |     100 | 
+  getCarMW.js          |     100 |      100 |     100 |     100 | 
+ middlewares/passenger |     100 |      100 |     100 |     100 | 
+  getPassengerMW.js    |     100 |      100 |     100 |     100 | 
+-----------------------|---------|----------|---------|---------|-------------------
