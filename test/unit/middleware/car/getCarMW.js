@@ -55,6 +55,7 @@ describe('getCarMW middleware ', function () {
             resMock,
             (err) => {
                 expect(err).to.exist;
+                expect(resMock.locals).to.be.eql({});
                 done();
             });
     });
