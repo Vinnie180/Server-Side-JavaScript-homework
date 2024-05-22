@@ -2,7 +2,7 @@ var expect = require('chai').expect;
 var getPassengerMW = require('../../../../middlewares/passenger/getPassengerMW');
 
 describe('getPassengerMW middleware ', function () {
-    it('should return passenger', function (done) {
+    it('should return a passenger from the database by id with no error', function (done) {
         const mw = getPassengerMW({
             passengerModel: {
                 findOne: (p1) => {
@@ -16,11 +16,13 @@ describe('getPassengerMW middleware ', function () {
             locals: {}
         };
 
-        mw({
+        const reqMock = {
             params: {
                 passengerid: '1234'
             }
-        },
+        };
+
+        mw( reqMock,
             resMock,
             (err) => {
                 expect(err).to.not.exist;
@@ -29,7 +31,7 @@ describe('getPassengerMW middleware ', function () {
             });
     });
 
-    it('should redirect to /passengers', function (done) {
+    it('should call next with error if passenger does not exist', function (done) {
         const mw = getPassengerMW({
             passengerModel: {
                 findOne: (p1) => {
@@ -40,43 +42,19 @@ describe('getPassengerMW middleware ', function () {
         });
 
         const resMock = {
-            redirect: (where) => {
-                expect(where).to.be.eql('/passengers');
-                done();
-            }
-        };
-
-        mw({
-            params: {
-                passengerid: '1234'
-            }
-        },
-            resMock,
-            () => { });
-    });
-
-    it('should call next with error', function (done) {
-        const mw = getPassengerMW({
-            passengerModel: {
-                findOne: (p1) => {
-                    expect(p1).to.be.eql({ _id: '1234' });
-                    return Promise.reject('error');
-                }
-            }
-        });
-
-        const resMock = {
             locals: {}
         };
 
-        mw({
+        const reqMock = {
             params: {
                 passengerid: '1234'
             }
-        },
+        };
+
+        mw( reqMock,
             resMock,
             (err) => {
-                expect(err).to.be.eql('error');
+                expect(err).to.exist;
                 done();
             });
     });

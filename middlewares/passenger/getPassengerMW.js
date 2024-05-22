@@ -12,7 +12,7 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         passengerModel.findOne({ _id: req.params.passengerid }).then(passenger => {
             if (!passenger) {
-                return res.redirect('/passengers');
+                return next(new Error('Car not found'));
             }
             res.locals.passenger = passenger;
             return next();
