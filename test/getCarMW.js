@@ -1,13 +1,13 @@
 var expect = require('chai').expect;
-var getPassengerMW = require('../../../../middlewares/passenger/getPassengerMW');
+var getCarMW = require('../middlewares/car/getCarMW');
 
-describe('getPassengerMW middleware ', function () {
-    it('should return a passenger from the database by id with no error', function (done) {
-        const mw = getPassengerMW({
-            passengerModel: {
+describe('getCarMW middleware ', function () {
+    it('should return a car from the database by id with no error', function (done) {
+        const mw = getCarMW({
+            carModel: {
                 findOne: (p1) => {
                     expect(p1).to.be.eql({ _id: '1234' });
-                    return Promise.resolve('mockPassenger');
+                    return Promise.resolve('mockCar');
                 }
             }
         });
@@ -18,7 +18,7 @@ describe('getPassengerMW middleware ', function () {
 
         const reqMock = {
             params: {
-                passengerid: '1234'
+                carid: '1234'
             }
         };
 
@@ -26,14 +26,14 @@ describe('getPassengerMW middleware ', function () {
             resMock,
             (err) => {
                 expect(err).to.not.exist;
-                expect(resMock.locals).to.be.eql({ passenger: 'mockPassenger' });
+                expect(resMock.locals).to.be.eql({ car: 'mockCar' });
                 done();
             });
     });
 
-    it('should call next with error if passenger does not exist', function (done) {
-        const mw = getPassengerMW({
-            passengerModel: {
+    it('should call next with error if car not exist', function (done) {
+        const mw = getCarMW({
+            carModel: {
                 findOne: (p1) => {
                     expect(p1).to.be.eql({ _id: '1234' });
                     return Promise.resolve(null);
@@ -47,7 +47,7 @@ describe('getPassengerMW middleware ', function () {
 
         const reqMock = {
             params: {
-                passengerid: '1234'
+                carid: '1234'
             }
         };
 
@@ -61,8 +61,8 @@ describe('getPassengerMW middleware ', function () {
     });
 
     it('should call next with error if findOne throws error', function (done) {
-        const mw = getPassengerMW({
-            passengerModel: {
+        const mw = getCarMW({
+            carModel: {
                 findOne: (p1) => {
                     expect(p1).to.be.eql({ _id: '1234' });
                     return Promise.reject('error');
@@ -76,14 +76,14 @@ describe('getPassengerMW middleware ', function () {
 
         const reqMock = {
             params: {
-                passengerid: '1234'
+                carid: '1234'
             }
         };
 
         mw( reqMock,
             resMock,
             (err) => {
-                expect(err).to.be.eql('error');
+                expect(err).to.exist;
                 done();
             });
     });
